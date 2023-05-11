@@ -2,8 +2,8 @@ package be.technifutur.decouvertekotlin.classe
 
 import java.time.LocalDate
 
-class Personne(val nom:String,val prenom:String, val naissance:LocalDate) {
-
+open class Personne(val nom:String,val prenom:String, val naissance:LocalDate) {
+    constructor(nom: String,prenom: String,naissance: String):this(nom,prenom,LocalDate.parse(naissance))
     val age
         get() = naissance.until(LocalDate.now()).years
     override fun toString(): String {
